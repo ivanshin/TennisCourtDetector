@@ -9,6 +9,8 @@ from tracknet import BallTrackerNet
 import argparse
 from torch.optim import lr_scheduler
 
+EXP_NAME = "default"
+
 if __name__ == '__main__':
     
     parser = argparse.ArgumentParser()
@@ -46,7 +48,7 @@ if __name__ == '__main__':
     tb_path = os.path.join(exps_path, 'plots')
     if not os.path.exists(tb_path):
         os.makedirs(tb_path)
-    log_writer = SummaryWriter(tb_path)
+    log_writer = SummaryWriter(tb_path, EXP_NAME)
     model_last_path = os.path.join(exps_path, 'model_last.pt')
     model_best_path = os.path.join(exps_path, 'model_best.pt')
 

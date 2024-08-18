@@ -42,10 +42,10 @@ class courtDataset(Dataset):
         kps = self.data[index]['kps']
         img = cv2.imread(os.path.join(self.path_images, img_name))
         img = cv2.resize(img, (self.output_width, self.output_height))
-        inp = (img.astype(np.float32) / 255.)
+        inp = (img.astype(float) / 255.)
         inp = np.rollaxis(inp, 2, 0)
 
-        hm_hp = np.zeros((self.num_joints+1, self.output_height, self.output_width), dtype=np.float32)
+        hm_hp = np.zeros((self.num_joints+1, self.output_height, self.output_width), dtype=float)
         draw_gaussian = draw_umich_gaussian
 
         for i in range(len(kps)):

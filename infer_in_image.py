@@ -28,7 +28,7 @@ if __name__ == '__main__':
 
     image = cv2.imread(args.input_path)
     img = cv2.resize(image, (OUTPUT_WIDTH, OUTPUT_HEIGHT))
-    inp = (img.astype(np.float32) / 255.)
+    inp = (img.astype(float) / 255.)
     inp = torch.tensor(np.rollaxis(inp, 2, 0))
     inp = inp.unsqueeze(0)
 
